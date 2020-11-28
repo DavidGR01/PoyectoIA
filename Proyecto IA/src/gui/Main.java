@@ -39,6 +39,7 @@ public class Main {
 	private static Grafo red = new Grafo();
 	private static JLabel lbl_duracionRuta, lblNumParadas, lblNumTras,lblStringDuracionRuta;
 	private static JComboBox<String> comboOrigen,comboDestino;
+	private static AEstrella alg;
 
 	/**
 	 * Launch the application.
@@ -123,7 +124,7 @@ public class Main {
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clear();
-				AEstrella alg = new AEstrella(red, red.getEstacionByName(comboOrigen.getSelectedItem().toString()),
+				alg = new AEstrella(red, red.getEstacionByName(comboOrigen.getSelectedItem().toString()),
 						red.getEstacionByName(comboDestino.getSelectedItem().toString()));
 				ruta = alg.getResultado();
 				System.out.println(ruta.toString());
@@ -231,11 +232,11 @@ public class Main {
 		lblStringDuracionRuta.setText("<html>Duración estimada de la ruta<br>desde <b>"+ comboOrigen.getSelectedItem().toString()+"</b> hasta <b>"+ comboDestino.getSelectedItem().toString()+"</b></html>");
 		lblNumTras.setText(trasbordos.size()+"");
 		lblNumParadas.setText(ruta.size() + "");
+		lbl_duracionRuta.setText(alg.getTiempoRuta()+" min");
 
 	}
 
 	private static void drawRuta() {
-
 		// Añadimos las estaciones ficticias para las esquinas
 		anadirEstacionesFicticias();
 

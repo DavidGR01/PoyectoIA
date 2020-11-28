@@ -107,7 +107,7 @@ public class AEstrella {
 	public double getDistanciaH(Estacion est) {
 		Punto p1 = new Punto(est.getCoordX(), est.getCoordY());
 		Punto p2 = new Punto(destino.getCoordX(), est.getCoordY());
-		return p1.distancia(p2);
+		return p1.tiempo(p2);
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class AEstrella {
 	 * @return
 	 */
 	public Estacion apilar(Estacion actual, Estacion origen) {
-		//tiempo += red.getTrayecto(pila.top().element(), actual).getTiempo();
-		
+		if(!pila.isEmpty()) 
+            tiempo += red.getTrayecto(pila.top().element(), actual).getTiempo();
 		pila.push(red.getVertice(actual));
 		if (actual.equals(origen)) {
 			return actual;

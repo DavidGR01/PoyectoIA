@@ -2,40 +2,67 @@ package app;
 
 public class Punto {
 
-	// ATRIBUTOS
-	double x;
-	double y;
-	final double R = 6371; // radio terrestre en KM
+	double coordX;
+	double coordY;
 
-	// CONSTRUCTOR
+	// Radio de la tierra en km. Para calcular el tiempo entre dos puntos
+	final double R = 6371;
+
+	/**
+	 * Constructor
+	 * 
+	 * @param x
+	 * @param y
+	 */
 	public Punto(double x, double y) {
-		this.x = x;
-		this.y = y;
+		this.coordX = x;
+		this.coordY = y;
 	}
 
-	// GETTERS
-	public double getX() {
-		return x;
+	// Getters
+	public double getCoordX() {
+		return coordX;
 	}
 
-	public double getY() {
-		return y;
+	public double getCoordY() {
+		return coordY;
 	}
 
-	// Metodo que calcula la distancia entre puntos
-	public double distancia(Punto p) {
-		// Longitud - latitud de ambos puntos
-		double long1 = this.getX();
-		double long2 = p.getX();
-		double lat1 = this.getY();
-		double lat2 = p.getY();
-		// Calculo de la distancia entre puntos
-		double difLat = Math.toRadians(lat2 - lat1);
-		double difLong = Math.toRadians(long2 - long1);
-		double a = Math.pow(Math.sin(difLat / 2), 2)
-				+ Math.pow(Math.sin(difLong / 2), 2) * Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2));
+	/**
+	 * Calcula el tiempo que tarda un tren en ir en línea recta entre los puntos
+	 * this y p
+	 * 
+	 * @param p
+	 * @return el tiempo entre p y this
+	 */
+	public double tiempo(Punto p) {
+
+		/*
+		 * Fórmula:
+		 * 	R = radio de la Tierra
+		 * 
+		 * 	Δlat = lat2− lat1
+		 * 	Δlong = long2− long1
+		 * 
+		 * 	a = sin²(Δlat/2) + cos(lat1) · cos(lat2) · sin²(Δlong/2)
+		 * 	c = 2 · atan2(√a, √(1−a))
+		 * 	d = R · c
+		 */
+		
+		double difY = Math.toRadians(p.getCoordY() - coordY);
+		double difX = Math.toRadians(p.getCoordX() - coordX);
+
+		double a = Math.pow(Math.sin(difY / 2), 2) + Math.pow(Math.sin(difX / 2), 2) * Math.cos(Math.toRadians(coordY))
+				* Math.cos(Math.toRadians(p.getCoordY()));
+
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-		return R * c;
+
+		double distancia = R * c;
+		
+		
+		// Paso la distancia a tiempo
+		// Un tren va a una velocidad aproximada de 80 km/h
+		return (distancia / 80) * 60;
 	}
 
 }
