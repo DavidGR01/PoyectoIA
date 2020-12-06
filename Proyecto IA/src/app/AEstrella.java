@@ -2,9 +2,10 @@ package app;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
-import es.upm.aedlib.graph.*;
-import es.upm.aedlib.lifo.*;
+
+import es.upm.aedlib.graph.Vertex;
+import es.upm.aedlib.lifo.LIFO;
+import es.upm.aedlib.lifo.LIFOList;
 
 public class AEstrella {
 
@@ -17,7 +18,10 @@ public class AEstrella {
 	private ArrayList<Estacion> listaCerrada = new ArrayList<Estacion>();
 	private LIFO<Vertex<Estacion>> pila = new LIFOList();
 
-	private double tiempo=0;
+	private boolean movRed;
+	private int horaSalida;
+
+	private double tiempo = 0;
 
 	/**
 	 * Constructor. Inicializa las variables y da paso al algortimo
@@ -26,11 +30,13 @@ public class AEstrella {
 	 * @param destino
 	 * @param red
 	 */
-	public AEstrella(Grafo red, Estacion origen, Estacion destino) {
+	public AEstrella(Grafo red, Estacion origen, Estacion destino, boolean movRed, int horaSalida) {
 		// Inicializamos las variables
 		this.red = red;
 		this.origen = origen;
 		this.destino = destino;
+		this.movRed = movRed;
+		this.horaSalida = horaSalida;
 
 		Estacion actual = null;
 		listaAbierta.add(origen);
@@ -92,9 +98,17 @@ public class AEstrella {
 		// Calculo G
 		double dG = getDistanciaG(estacion1, estacion2);
 
+		if (estacion1.getEstacionAnterior() != null && !red.getTrayecto(estacion1, estacion2).getLinea()
+				.equals(red.getTrayecto(estacion1, estacion1.getEstacionAnterior()).getLinea())) {
+			// Penalizacion por trasbordos
+			dG += getPenalizacion();
+			if (movRed)
+				dG += 6;
+		}
+
 		// Asigno valores
 		estacion2.setG(estacion1.getG() + dG);
-		estacion2.setH(estacion1.getG() + dH);
+		estacion2.setH(estacion1.getH() + dH);
 		estacion2.setF(estacion2.getG() + estacion2.getH());
 	}
 
@@ -135,8 +149,8 @@ public class AEstrella {
 	 * @return
 	 */
 	public Estacion apilar(Estacion actual, Estacion origen) {
-		if(!pila.isEmpty()) 
-            tiempo += red.getTrayecto(pila.top().element(), actual).getTiempo();
+		if (!pila.isEmpty())
+			tiempo += red.getTrayecto(pila.top().element(), actual).getTiempo();
 		pila.push(red.getVertice(actual));
 		if (actual.equals(origen)) {
 			return actual;
@@ -160,6 +174,34 @@ public class AEstrella {
 
 	public double getTiempoRuta() {
 		return tiempo;
+	}
+
+	public double getPenalizacion() {
+
+		double random = 0;
+
+		if ((horaSalida >= 7 && horaSalida <= 9) || (horaSalida >= 12 && horaSalida <= 15)
+				|| horaSalida >= 19 && horaSalida <= 21)
+			random = Math.random() * 8 + (Math.random() * 2 + 2);
+
+		if ((horaSalida > 21) || (horaSalida > 15 && horaSalida < 19))
+			random = Math.random() * 10 + (Math.random() * 2 + 2);
+
+		return random;
+	}
+
+	public double getMaxPenalizacion() {
+
+		double random = 0;
+
+		if ((horaSalida >= 7 && horaSalida <= 9) || (horaSalida >= 12 && horaSalida <= 15)
+				|| horaSalida >= 19 && horaSalida <= 21)
+			random = 12;
+
+		if ((horaSalida > 21) || (horaSalida > 15 && horaSalida < 19))
+			random = 14;
+
+		return random;
 	}
 
 }

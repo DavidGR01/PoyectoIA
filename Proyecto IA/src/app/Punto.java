@@ -62,7 +62,7 @@ public class Punto {
 		
 		// Paso la distancia a tiempo
 		// Un tren va a una velocidad aproximada de 80 km/h
-		return (distancia / 80) * 60;
+		return (distancia / 50) * 60;
 	}
 
 }

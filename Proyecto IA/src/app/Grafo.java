@@ -3,7 +3,10 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.upm.aedlib.graph.*;
+import es.upm.aedlib.graph.Edge;
+import es.upm.aedlib.graph.UndirectedAdjacencyListGraph;
+import es.upm.aedlib.graph.UndirectedGraph;
+import es.upm.aedlib.graph.Vertex;
 
 public class Grafo {
 
@@ -327,7 +330,6 @@ public class Grafo {
 			if (red.opposite(vertice1, e) == vertice2)
 				return e.element();
 		}
-
 		return null;
 	}
 
