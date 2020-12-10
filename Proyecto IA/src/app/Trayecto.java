@@ -5,7 +5,6 @@ public class Trayecto {
 	private Estacion estacion1;
 	private Estacion estacion2;
 	private double tiempo;
-	private double distancia;
 	private String linea;
 
 	/**
@@ -14,7 +13,6 @@ public class Trayecto {
 	 * @param estacion1
 	 * @param estacion2
 	 * @param tiempo
-	 * @param distancia
 	 */
 	public Trayecto(Estacion estacion1, Estacion estacion2, double tiempo,  String linea) {
 
@@ -33,10 +31,6 @@ public class Trayecto {
 
 	public Estacion getEstacion2() {
 		return estacion2;
-	}
-
-	public double getDistancia() {
-		return distancia;
 	}
 
 	public double getTiempo() {

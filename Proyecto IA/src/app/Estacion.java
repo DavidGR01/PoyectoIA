@@ -10,7 +10,6 @@ public class Estacion {
 	private String nombre;
 	private double coordX, coordY;
 	private int xPic, yPic;
-	private boolean isTrasbordo;
 
 	// funciones necesarias para el algortimo A*
 	private double f, g, h;
@@ -25,42 +24,40 @@ public class Estacion {
 	 * @param coordX
 	 * @param coordY
 	 */
-	public Estacion(String nombre, double coordX, double coordY, int xPic, int yPic, boolean isTrasbordo) {
-		this.nombre = nombre;
-		this.coordX = coordX;
-		this.coordY = coordY;
-		this.xPic = xPic;
-		this.yPic = yPic;
-		this.isTrasbordo = isTrasbordo;
-	}
-
-	// Constructor para los trasbordos
 	public Estacion(String nombre, double coordX, double coordY, int xPic, int yPic) {
 		this.nombre = nombre;
 		this.coordX = coordX;
 		this.coordY = coordY;
 		this.xPic = xPic;
 		this.yPic = yPic;
-		this.isTrasbordo = false;
 	}
 
 	/**
-	 * Devuelve una lista de las estaciones vecinas de la estacion
+	 * Devuelve una lista de las estaciones a las que se puede llegar desde la
+	 * estaci�n this
 	 * 
 	 * @param red
-	 * @return
+	 * @return estaciones vecinas a la estaci�n this
 	 */
 	public List<Estacion> vecinos(Grafo red) {
 		List<Vertex<Estacion>> listaVertices = red.vecinos(red.getVertice(this));
 		List<Estacion> res = new ArrayList<>();
-		for (Vertex<Estacion> v : listaVertices) {
+		for (Vertex<Estacion> v : listaVertices)
 			res.add(v.element());
-		}
-
 		return res;
 	}
 
-	// Getters y setters
+	// toString
+
+	public String toString() {
+		return "Estación: " + this.nombre;
+	}
+
+	// Getters
+
+	public String getNombre() {
+		return nombre;
+	}
 
 	public double getCoordX() {
 		return coordX;
@@ -70,12 +67,12 @@ public class Estacion {
 		return coordY;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public int getxPic() {
+		return xPic;
 	}
 
-	public String toString() {
-		return "Estación: " + this.nombre;
+	public int getyPic() {
+		return yPic;
 	}
 
 	public double getF() {
@@ -89,6 +86,12 @@ public class Estacion {
 	public double getH() {
 		return h;
 	}
+
+	public Estacion getEstacionAnterior() {
+		return estacionAnterior;
+	}
+
+	// Setters
 
 	public void setF(double f) {
 		this.f = f;
@@ -105,21 +108,4 @@ public class Estacion {
 	public void setEstacionAnterior(Estacion estacionAnterior) {
 		this.estacionAnterior = estacionAnterior;
 	}
-
-	public Estacion getEstacionAnterior() {
-		return estacionAnterior;
-	}
-
-	public int getxPic() {
-		return xPic;
-	}
-
-	public int getyPic() {
-		return yPic;
-	}
-
-	public boolean isTrasbordo() {
-		return isTrasbordo;
-	}
-
 }

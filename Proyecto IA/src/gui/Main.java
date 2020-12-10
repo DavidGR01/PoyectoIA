@@ -132,7 +132,7 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				clear();
 				alg = new AEstrella(red, red.getEstacionByName(comboOrigen.getSelectedItem().toString()),
-						red.getEstacionByName(comboDestino.getSelectedItem().toString()), checkMovRed.isSelected(),
+						red.getEstacionByName(comboDestino.getSelectedItem().toString()), false,
 						Integer.valueOf(new SimpleDateFormat("HH").format(timeSpinner.getValue())));
 				ruta = alg.getResultado();
 				if (ruta.size() < 2) {
@@ -150,7 +150,7 @@ public class Main {
 				}
 			}
 		});
-		btnGo.setBounds(1004, 160, 173, 111);
+		btnGo.setBounds(1004, 166, 173, 111);
 		frame.getContentPane().add(btnGo);
 
 		panelMap = new JPanel();
@@ -158,20 +158,20 @@ public class Main {
 		frame.getContentPane().add(panelMap);
 		panelMap.setLayout(null);
 
-		JLabel lblNewLabel_1 = new JLabel("Movilidad Reducida");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1.setBounds(794, 160, 122, 27);
-		frame.getContentPane().add(lblNewLabel_1);
+		//JLabel lblNewLabel_1 = new JLabel("Movilidad Reducida");
+		//lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		//lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
+		//lblNewLabel_1.setBounds(794, 160, 122, 27);
+		//frame.getContentPane().add(lblNewLabel_1);
 
-		checkMovRed = new JRadioButton("");
-		checkMovRed.setBounds(905, 164, 29, 21);
-		frame.getContentPane().add(checkMovRed);
+		//checkMovRed = new JRadioButton("");
+		//checkMovRed.setBounds(905, 164, 29, 21);
+		//frame.getContentPane().add(checkMovRed);
 
 		lblStringDuracionRuta = new JLabel("<html>Duración estimada de la ruta<br>desde ______ hasta _______</html>");
 		lblStringDuracionRuta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblStringDuracionRuta.setFont(new Font("Poppins", Font.PLAIN, 13));
-		lblStringDuracionRuta.setBounds(794, 346, 211, 53);
+		lblStringDuracionRuta.setBounds(807, 346, 211, 53);
 		frame.getContentPane().add(lblStringDuracionRuta);
 
 		// Fondo al final siempre
@@ -182,7 +182,7 @@ public class Main {
 
 		lbl_duracionRuta = new JLabel("0 min");
 		lbl_duracionRuta.setFont(new Font("Poppins", Font.BOLD, 25));
-		lbl_duracionRuta.setBounds(1020, 350, 144, 46);
+		lbl_duracionRuta.setBounds(1033, 350, 144, 46);
 		frame.getContentPane().add(lbl_duracionRuta);
 
 		JSeparator separator = new JSeparator();
@@ -192,41 +192,41 @@ public class Main {
 		JLabel lblNmeroDeParadas = new JLabel("Número de paradas");
 		lblNmeroDeParadas.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNmeroDeParadas.setFont(new Font("Poppins", Font.PLAIN, 13));
-		lblNmeroDeParadas.setBounds(794, 457, 211, 53);
+		lblNmeroDeParadas.setBounds(807, 422, 211, 53);
 		frame.getContentPane().add(lblNmeroDeParadas);
 
 		JLabel lblNmeroDeTrasbordos = new JLabel("Número de trasbordos");
 		lblNmeroDeTrasbordos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNmeroDeTrasbordos.setFont(new Font("Poppins", Font.PLAIN, 13));
-		lblNmeroDeTrasbordos.setBounds(794, 520, 211, 53);
+		lblNmeroDeTrasbordos.setBounds(807, 485, 211, 53);
 		frame.getContentPane().add(lblNmeroDeTrasbordos);
 
 		lblNumParadas = new JLabel("0");
 		lblNumParadas.setFont(new Font("Poppins", Font.BOLD, 25));
-		lblNumParadas.setBounds(1020, 457, 144, 46);
+		lblNumParadas.setBounds(1033, 422, 144, 46);
 		frame.getContentPane().add(lblNumParadas);
 
 		lblNumTras = new JLabel("0");
 		lblNumTras.setFont(new Font("Poppins", Font.BOLD, 25));
-		lblNumTras.setBounds(1020, 520, 144, 46);
+		lblNumTras.setBounds(1033, 485, 144, 46);
 		frame.getContentPane().add(lblNumTras);
 
-		lblMaxMin = new JLabel("(min - max)");
-		lblMaxMin.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblMaxMin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMaxMin.setBounds(822, 409, 268, 33);
-		frame.getContentPane().add(lblMaxMin);
+//		lblMaxMin = new JLabel("(min - max)");
+//		lblMaxMin.setFont(new Font("Tahoma", Font.PLAIN, 12));
+//		lblMaxMin.setHorizontalAlignment(SwingConstants.CENTER);
+//		lblMaxMin.setBounds(822, 409, 268, 33);
+//		frame.getContentPane().add(lblMaxMin);
 
 		timeSpinner = new JSpinner(new SpinnerDateModel());
 		JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(timeSpinner, "HH:mm");
-		timeSpinner.setBounds(888, 238, 56, 33);
+		timeSpinner.setBounds(896, 194, 56, 33);
 		timeSpinner.setEditor(timeEditor);
 		timeSpinner.setValue(new Date());
 		frame.getContentPane().add(timeSpinner);
 
 		lblNewLabel = new JLabel("Hora de salida");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel.setBounds(794, 248, 101, 13);
+		lblNewLabel.setBounds(802, 204, 101, 13);
 		frame.getContentPane().add(lblNewLabel);
 
 	}
@@ -245,14 +245,14 @@ public class Main {
 		lblNumTras.setText(trasbordos.size() + "");
 		lblNumParadas.setText(ruta.size() + "");
 		// La ultima suma de getPenalizacion se debe a la primera parada
-		double dur = alg.getTiempoRuta() + (alg.getPenalizacion()) * trasbordos.size() + alg.getPenalizacion();
+		double dur = alg.getTiempoRuta();
+		double sinPen = alg.getTiempoSinPenalizaciones();
 		lbl_duracionRuta.setText(Math.round(dur) + " min");
 
-		int min = (int) Math.round(alg.getTiempoRuta() + 4 * trasbordos.size());
-		int max = (int) Math
-				.round(alg.getTiempoRuta() + alg.getMaxPenalizacion() * trasbordos.size() + alg.getMaxPenalizacion());
+		//int min = (int) Math.round(sinPen + alg.getMinPenalizacion() * trasbordos.size() + alg.getMinPenalizacion());
+		//int max = (int) Math.round(sinPen + alg.getMaxPenalizacion() * trasbordos.size() + alg.getMaxPenalizacion());
 
-		lblMaxMin.setText("(" + min + " min - " + max + " min)");
+		//lblMaxMin.setText("(" + min + " min - " + max + " min)");
 	}
 
 	private static void drawRuta() {
@@ -380,7 +380,7 @@ public class Main {
 		lbl_duracionRuta.setText("0 min");
 		lblNumParadas.setText("0");
 		lblNumTras.setText("0");
-		lblMaxMin.setText("(min - max)");
+		//lblMaxMin.setText("(min - max)");
 		trasbordos.clear();
 
 		// Limpiamos las aristas dibujadas

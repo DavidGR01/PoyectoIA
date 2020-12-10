@@ -27,16 +27,16 @@ public class Grafo {
 		Estacion athenas5 = new Estacion("Irini", 38.04374451849954, 23.782694457323174, 400, 145);
 		Estacion athenas6 = new Estacion("Iraklio", 38.046245496021456, 23.766043303717474, 328, 153);
 		Estacion athenas7 = new Estacion("Neo Ionia", 38.041598341329504, 23.755169628491036, 309, 172);
-		Estacion athenas8 = new Estacion("Pefkakia", 38.039545853341096, 23.75176106963346, 292,190);
-		Estacion athenas9 = new Estacion("Perissos", 38.032936108861406, 23.74463163205478, 272,209);
-		Estacion athenas10 = new Estacion("Ano Patissia", 38.023754752397494, 23.735986469515108, 253,229);
-		Estacion athenas11 = new Estacion("Aghios Eleftherios", 38.02010352751815, 23.73188805415485, 233,248);
-		Estacion athenas12 = new Estacion("Kato Patissia", 38.011575423877076, 23.728820964455462, 212,270);
-		Estacion athenas13 = new Estacion("Aghios Nikolaos", 38.006930296315154, 23.727683707843234, 191,292);
+		Estacion athenas8 = new Estacion("Pefkakia", 38.039545853341096, 23.75176106963346, 292, 190);
+		Estacion athenas9 = new Estacion("Perissos", 38.032936108861406, 23.74463163205478, 272, 209);
+		Estacion athenas10 = new Estacion("Ano Patissia", 38.023754752397494, 23.735986469515108, 253, 229);
+		Estacion athenas11 = new Estacion("Aghios Eleftherios", 38.02010352751815, 23.73188805415485, 233, 248);
+		Estacion athenas12 = new Estacion("Kato Patissia", 38.011575423877076, 23.728820964455462, 212, 270);
+		Estacion athenas13 = new Estacion("Aghios Nikolaos", 38.006930296315154, 23.727683707843234, 191, 292);
 
 		// estacion en linea verde y roja
 
-		Estacion athenas14 = new Estacion("Attiki", 37.99944880265642, 23.722756891083915, 173,310);
+		Estacion athenas14 = new Estacion("Attiki", 37.99944880265642, 23.722756891083915, 173, 310);
 		Estacion athenas15 = new Estacion("Victoria", 37.99308300014649, 23.730323254470207, 209, 360);
 
 		// estacion en linea verde y roja
@@ -47,48 +47,48 @@ public class Grafo {
 
 		Estacion athenas17 = new Estacion("Monastiraki", 37.976082670128605, 23.725623789535472, 210, 425);
 		Estacion athenas18 = new Estacion("Thissio", 37.97673404540172, 23.72067136296464, 210, 462);
-		Estacion athenas19 = new Estacion("Petralona", 37.96863353917757, 23.709220633202904, 200,486);
-		Estacion athenas20 = new Estacion("Tavros", 37.96249109348175, 23.7033519233788, 177,509);
-		Estacion athenas21 = new Estacion("Kallithea", 37.9604225677948, 23.697265871913242, 155,532);
-		Estacion athenas22 = new Estacion("Moschato", 37.95503307384399, 23.679689864284008, 133,554);
-		Estacion athenas23 = new Estacion("Faliro", 37.9450867983585, 23.665226153853716, 107,577);
-		Estacion athenas24 = new Estacion("Piraeus", 37.948168527813955, 23.64326062925314, 18,588);
+		Estacion athenas19 = new Estacion("Petralona", 37.96863353917757, 23.709220633202904, 200, 486);
+		Estacion athenas20 = new Estacion("Tavros", 37.96249109348175, 23.7033519233788, 177, 509);
+		Estacion athenas21 = new Estacion("Kallithea", 37.9604225677948, 23.697265871913242, 155, 532);
+		Estacion athenas22 = new Estacion("Moschato", 37.95503307384399, 23.679689864284008, 133, 554);
+		Estacion athenas23 = new Estacion("Faliro", 37.9450867983585, 23.665226153853716, 107, 577);
+		Estacion athenas24 = new Estacion("Piraeus", 37.948168527813955, 23.64326062925314, 18, 588);
 
 		// Estaciones linea ROJA
 
-		Estacion athenas25 = new Estacion("Aghios Antonios", 38.00730151921081, 23.69949706951168, 109,245);
-		Estacion athenas26 = new Estacion("Sepolia", 38.003350247868, 23.713410817497586, 142,278);
-		Estacion athenas27 = new Estacion("Larissa Station", 37.99258056122259, 23.721356485874686, 173,343);
-		Estacion athenas28 = new Estacion("Metaxourghio", 37.98698637900558, 23.721215229506697, 173,371);
-		Estacion athenas29 = new Estacion("Panepistimio", 37.980840918159565, 23.73310173872911, 229,407);
+		Estacion athenas25 = new Estacion("Aghios Antonios", 38.00730151921081, 23.69949706951168, 109, 245);
+		Estacion athenas26 = new Estacion("Sepolia", 38.003350247868, 23.713410817497586, 142, 278);
+		Estacion athenas27 = new Estacion("Larissa Station", 37.99258056122259, 23.721356485874686, 173, 343);
+		Estacion athenas28 = new Estacion("Metaxourghio", 37.98698637900558, 23.721215229506697, 173, 371);
+		Estacion athenas29 = new Estacion("Panepistimio", 37.980840918159565, 23.73310173872911, 229, 407);
 		Estacion athenas30 = new Estacion("Syntagma", 37.9752676428218, 23.73570462884102, 247, 425);
-		Estacion athenas31 = new Estacion("Akropoli", 37.969032728288006, 23.72957927448526, 250,464);
-		Estacion athenas32 = new Estacion("Sygrou - Fix", 37.9644068253163, 23.726554717658804, 250,494);
-		Estacion athenas33 = new Estacion("Neos Kosmos", 37.95773742487141, 23.72846187344377, 250,524);
-		Estacion athenas34 = new Estacion("Aghios Loannis", 37.95678973558862, 23.734698381473027, 250,553);
+		Estacion athenas31 = new Estacion("Akropoli", 37.969032728288006, 23.72957927448526, 250, 464);
+		Estacion athenas32 = new Estacion("Sygrou - Fix", 37.9644068253163, 23.726554717658804, 250, 494);
+		Estacion athenas33 = new Estacion("Neos Kosmos", 37.95773742487141, 23.72846187344377, 250, 524);
+		Estacion athenas34 = new Estacion("Aghios Loannis", 37.95678973558862, 23.734698381473027, 250, 553);
 		Estacion athenas35 = new Estacion("Dafni", 37.94933542727922, 23.737247896645897, 250, 583);
 		Estacion athenas36 = new Estacion("Aghios Dimitrios", 37.94052565668688, 23.74071221022312, 250, 612);
 
 		// Estaciones linea AZUL
 
 		Estacion athenas37 = new Estacion("Egaleo", 37.99276237509949, 23.681669038773073, 50, 340);
-		Estacion athenas38 = new Estacion("Eleonas", 37.98794922185388, 23.693768335383325, 92,382);
-		Estacion athenas39 = new Estacion("Kerameikos", 37.979395534166045, 23.71159070406393, 125,415);
-		Estacion athenas40 = new Estacion("Evangelismos", 37.97706378687556, 23.746691834164693, 312,425);
-		Estacion athenas41 = new Estacion("Megaro Moussikis", 37.97993913829356, 23.753000389331483, 366,414);
-		Estacion athenas42 = new Estacion("Ambelokipi", 37.987854229724384, 23.757034431796, 384,396);
-		Estacion athenas43 = new Estacion("Panormou", 37.99384071888214, 23.763342987092475, 402,378);
-		Estacion athenas44 = new Estacion("Katehaki", 37.994043642190896, 23.776174674811422, 419,360);
-		Estacion athenas45 = new Estacion("Ethniki Amyna", 38.0007736127288, 23.785959373639688, 436,342);
-		Estacion athenas46 = new Estacion("Holargos", 38.005169742407986, 23.794714103950767, 454,325);
-		Estacion athenas47 = new Estacion("Nomismatokopio", 38.00990374121201, 23.8057004320679, 472,307);
-		Estacion athenas48 = new Estacion("Aghia Paraskevi", 38.01771417085876, 23.812180649024317, 489,289);
+		Estacion athenas38 = new Estacion("Eleonas", 37.98794922185388, 23.693768335383325, 92, 382);
+		Estacion athenas39 = new Estacion("Kerameikos", 37.979395534166045, 23.71159070406393, 125, 415);
+		Estacion athenas40 = new Estacion("Evangelismos", 37.97706378687556, 23.746691834164693, 312, 425);
+		Estacion athenas41 = new Estacion("Megaro Moussikis", 37.97993913829356, 23.753000389331483, 366, 414);
+		Estacion athenas42 = new Estacion("Ambelokipi", 37.987854229724384, 23.757034431796, 384, 396);
+		Estacion athenas43 = new Estacion("Panormou", 37.99384071888214, 23.763342987092475, 402, 378);
+		Estacion athenas44 = new Estacion("Katehaki", 37.994043642190896, 23.776174674811422, 419, 360);
+		Estacion athenas45 = new Estacion("Ethniki Amyna", 38.0007736127288, 23.785959373639688, 436, 342);
+		Estacion athenas46 = new Estacion("Holargos", 38.005169742407986, 23.794714103950767, 454, 325);
+		Estacion athenas47 = new Estacion("Nomismatokopio", 38.00990374121201, 23.8057004320679, 472, 307);
+		Estacion athenas48 = new Estacion("Aghia Paraskevi", 38.01771417085876, 23.812180649024317, 489, 289);
 		Estacion athenas49 = new Estacion("Holandri", 38.02227832239688, 23.82132161735102, 506, 272);
 		Estacion athenas50 = new Estacion("Doukissis Plakentias", 38.02444196902856, 23.83368123660564, 533, 248);
 		Estacion athenas51 = new Estacion("Pallini", 38.006759047769755, 23.869644294998704, 583, 267);
-		Estacion athenas52 = new Estacion("Paiania - Kantza", 37.98426514547666, 23.869886277983845, 583,313);
-		Estacion athenas53 = new Estacion("Koropi", 37.91389363358505, 23.895735912118077, 583,416);
-		Estacion athenas54 = new Estacion("Airport", 37.93757373728647, 23.94479758853519, 650,445);
+		Estacion athenas52 = new Estacion("Paiania - Kantza", 37.98426514547666, 23.869886277983845, 583, 313);
+		Estacion athenas53 = new Estacion("Koropi", 37.91389363358505, 23.895735912118077, 583, 416);
+		Estacion athenas54 = new Estacion("Airport", 37.93757373728647, 23.94479758853519, 650, 445);
 
 		// Vertex linea VERDE
 
@@ -189,7 +189,7 @@ public class Grafo {
 		Trayecto trayecto30 = new Trayecto(athenas27, athenas28, 1, "R");
 		Trayecto trayecto31 = new Trayecto(athenas28, athenas16, 1, "R");
 		Trayecto trayecto32 = new Trayecto(athenas16, athenas29, 1, "R");
-		Trayecto trayecto33 = new Trayecto(athenas29, athenas30, 1, "R");
+		Trayecto trayecto33 = new Trayecto(athenas29, athenas30, 2, "R");//*******
 		Trayecto trayecto34 = new Trayecto(athenas30, athenas31, 2, "R");
 		Trayecto trayecto35 = new Trayecto(athenas31, athenas32, 1, "R");
 		Trayecto trayecto36 = new Trayecto(athenas32, athenas33, 1, "R");
@@ -288,39 +288,22 @@ public class Grafo {
 	 * Devuelve el v�rtice asociado a la estaci�n pasada como par�metro
 	 * 
 	 * @param estacion --> puntero
-	 * @return
+	 * @return puntero al v�rtice de la estaci�n estacion. En caso de no existir dicha estaci�n, se devuelve null
 	 */
 	public Vertex<Estacion> getVertice(Estacion estacion) {
 		for (Vertex<Estacion> v : red.vertices()) {
-			if (v.element() == estacion) {
+			if (v.element() == estacion)
 				return v;
-			}
 		}
 		return null;
 	}
-
-	/**
-	 * Devuelve las estaciones conectadas con la estaci�n pasada como par�metro
-	 * 
-	 * @param estacion
-	 * @return
-	 */
-	public List<Vertex<Estacion>> vecinos(Vertex<Estacion> estacion) {
-		List<Vertex<Estacion>> res = new ArrayList<>();
-
-		for (Edge<Trayecto> e : red.edges(estacion)) {
-			res.add(red.opposite(estacion, e));
-		}
-
-		return res;
-	}
-
+	
 	/**
 	 * Devuelve el trayecto entre dos estaciones
 	 * 
 	 * @param estacion1 --> puntero
 	 * @param estacion2 --> puntero
-	 * @return
+	 * @return puntero a dicho trayecto. En caso de no existir dicho trayecto, se devuelve null
 	 */
 	public Trayecto getTrayecto(Estacion estacion1, Estacion estacion2) {
 		Vertex<Estacion> vertice1 = getVertice(estacion1);
@@ -332,7 +315,13 @@ public class Grafo {
 		}
 		return null;
 	}
-
+	
+	/**
+	 *  Devuelve el v�rtice asociado a la estaci�n pasada como par�metro
+	 * 
+	 * @param name
+	 * @return puntero al v�rtice correspondiente.  En caso de no existir dicha estaci�n, se devuelve null
+	 */
 	public Estacion getEstacionByName(String name) {
 		for (Vertex<Estacion> v : red.vertices()) {
 			if (v.element().getNombre().equalsIgnoreCase(name))
@@ -341,6 +330,24 @@ public class Grafo {
 		return null;
 	}
 
+	/**
+	 * Devuelve las estaciones conectadas con la estaci�n pasada como par�metro
+	 * 
+	 * @param estacion
+	 * @return lista de los v�rtices correspondiente
+	 */
+	public List<Vertex<Estacion>> vecinos(Vertex<Estacion> estacion) {
+		List<Vertex<Estacion>> res = new ArrayList<>();
+		for (Edge<Trayecto> e : red.edges(estacion))
+			res.add(red.opposite(estacion, e));
+		return res;
+	}
+
+	/**
+	 * Devuelve una lista con los nombres de todas las estaciones de la red
+	 * 
+	 * @return dicha lista
+	 */
 	public ArrayList<String> getEstaciones() {
 		ArrayList<String> res = new ArrayList<>();
 		for (Vertex<Estacion> v : red.vertices())
