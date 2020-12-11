@@ -39,13 +39,15 @@ public class Main {
 	private static ArrayList<Arista> aristasDibujadas = new ArrayList<>();
 	private static ArrayList<Nodo> nodosDibujados = new ArrayList<>();
 	private static ArrayList<Estacion> trasbordos = new ArrayList<>();
-	private static Grafo red = new Grafo();
+	private static Grafo redDatos = new Grafo() ;
+	private static Grafo red ;
 	private static JLabel lbl_duracionRuta, lblNumParadas, lblNumTras, lblStringDuracionRuta, lblMaxMin;
 	private static JComboBox<String> comboOrigen, comboDestino;
 	private static AEstrella alg;
 	private static JRadioButton checkMovRed;
 	private JLabel lblNewLabel;
 	private JSpinner timeSpinner;
+	private static int nParadas;
 
 	/**
 	 * Launch the application.
@@ -101,7 +103,7 @@ public class Main {
 		comboOrigen.setBounds(794, 88, 173, 33);
 		comboOrigen.setMaximumRowCount(50);
 		frame.getContentPane().add(comboOrigen);
-		for (String s : addJComboBoxSeparators(red.getEstaciones()))
+		for (String s : addJComboBoxSeparators(redDatos.getEstaciones()))
 			comboOrigen.addItem(s);
 		comboOrigen.setSelectedIndex(1);
 
@@ -110,7 +112,7 @@ public class Main {
 		comboDestino.setBounds(1004, 88, 173, 33);
 		comboDestino.setMaximumRowCount(50);
 		frame.getContentPane().add(comboDestino);
-		for (String s : addJComboBoxSeparators(red.getEstaciones()))
+		for (String s : addJComboBoxSeparators(redDatos.getEstaciones()))
 			comboDestino.addItem(s);
 		comboDestino.setSelectedIndex(1);
 
@@ -131,15 +133,16 @@ public class Main {
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clear();
+				red = new Grafo();
 				alg = new AEstrella(red, red.getEstacionByName(comboOrigen.getSelectedItem().toString()),
 						red.getEstacionByName(comboDestino.getSelectedItem().toString()), false,
 						Integer.valueOf(new SimpleDateFormat("HH").format(timeSpinner.getValue())));
 				ruta = alg.getResultado();
+				nParadas = ruta.size();
 				if (ruta.size() < 2) {
 					JOptionPane.showMessageDialog(new JFrame(), "Introduce dos estacion distintas.", "Comentarios",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
-
 					drawNodos();
 					drawRuta();
 					drawDatos();
@@ -158,15 +161,15 @@ public class Main {
 		frame.getContentPane().add(panelMap);
 		panelMap.setLayout(null);
 
-		//JLabel lblNewLabel_1 = new JLabel("Movilidad Reducida");
-		//lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		//lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		//lblNewLabel_1.setBounds(794, 160, 122, 27);
-		//frame.getContentPane().add(lblNewLabel_1);
+		// JLabel lblNewLabel_1 = new JLabel("Movilidad Reducida");
+		// lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		// lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
+		// lblNewLabel_1.setBounds(794, 160, 122, 27);
+		// frame.getContentPane().add(lblNewLabel_1);
 
-		//checkMovRed = new JRadioButton("");
-		//checkMovRed.setBounds(905, 164, 29, 21);
-		//frame.getContentPane().add(checkMovRed);
+		// checkMovRed = new JRadioButton("");
+		// checkMovRed.setBounds(905, 164, 29, 21);
+		// frame.getContentPane().add(checkMovRed);
 
 		lblStringDuracionRuta = new JLabel("<html>Duración estimada de la ruta<br>desde ______ hasta _______</html>");
 		lblStringDuracionRuta.setHorizontalAlignment(SwingConstants.CENTER);
@@ -243,16 +246,18 @@ public class Main {
 				.setText("<html>Duración estimada de la ruta<br>desde <b>" + comboOrigen.getSelectedItem().toString()
 						+ "</b> hasta <b>" + comboDestino.getSelectedItem().toString() + "</b></html>");
 		lblNumTras.setText(trasbordos.size() + "");
-		lblNumParadas.setText(ruta.size() + "");
+		lblNumParadas.setText(nParadas + "");
 		// La ultima suma de getPenalizacion se debe a la primera parada
 		double dur = alg.getTiempoRuta();
 		double sinPen = alg.getTiempoSinPenalizaciones();
 		lbl_duracionRuta.setText(Math.round(dur) + " min");
 
-		//int min = (int) Math.round(sinPen + alg.getMinPenalizacion() * trasbordos.size() + alg.getMinPenalizacion());
-		//int max = (int) Math.round(sinPen + alg.getMaxPenalizacion() * trasbordos.size() + alg.getMaxPenalizacion());
+		// int min = (int) Math.round(sinPen + alg.getMinPenalizacion() *
+		// trasbordos.size() + alg.getMinPenalizacion());
+		// int max = (int) Math.round(sinPen + alg.getMaxPenalizacion() *
+		// trasbordos.size() + alg.getMaxPenalizacion());
 
-		//lblMaxMin.setText("(" + min + " min - " + max + " min)");
+		// lblMaxMin.setText("(" + min + " min - " + max + " min)");
 	}
 
 	private static void drawRuta() {
@@ -380,7 +385,7 @@ public class Main {
 		lbl_duracionRuta.setText("0 min");
 		lblNumParadas.setText("0");
 		lblNumTras.setText("0");
-		//lblMaxMin.setText("(min - max)");
+		// lblMaxMin.setText("(min - max)");
 		trasbordos.clear();
 
 		// Limpiamos las aristas dibujadas

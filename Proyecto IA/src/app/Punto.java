@@ -2,8 +2,8 @@ package app;
 
 public class Punto {
 
-	private double coordX;
-	private double coordY;
+	private double lat;
+	private double longitud;
 
 	// Radio de la tierra en km. Para calcular el tiempo entre dos puntos
 	final double R = 6371;
@@ -11,21 +11,21 @@ public class Punto {
 	/**
 	 * Constructor
 	 * 
-	 * @param x
-	 * @param y
+	 * @param lat
+	 * @param longitud
 	 */
-	public Punto(double x, double y) {
-		this.coordX = x;
-		this.coordY = y;
+	public Punto(double lat, double longitud) {
+		this.lat = lat;
+		this.longitud = longitud;
 	}
 
 	// Getters
 	public double getCoordX() {
-		return coordX;
+		return lat;
 	}
 
 	public double getCoordY() {
-		return coordY;
+		return longitud;
 	}
 
 	/**
@@ -46,11 +46,11 @@ public class Punto {
 		 * √(1−a)) d = R · c
 		 */
 
-		double difY = Math.toRadians(p.getCoordY() - coordY);
-		double difX = Math.toRadians(p.getCoordX() - coordX);
+		double difLong = Math.toRadians(p.getCoordY() - longitud);
+		double difLat = Math.toRadians(p.getCoordX() - lat);
 
-		double a = (Math.pow(Math.sin(difY / 2), 2) + Math.pow(Math.sin(difX / 2), 2) * Math.cos(Math.toRadians(coordY))
-				* Math.cos(Math.toRadians(p.getCoordY())));
+		double a = (Math.pow(Math.sin(difLat / 2), 2) + Math.pow(Math.sin(difLong / 2), 2) * Math.cos(Math.toRadians(lat))
+				* Math.cos(Math.toRadians(p.getCoordX())));
 
 		double c = (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
 
